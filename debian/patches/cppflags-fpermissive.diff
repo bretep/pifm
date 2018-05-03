@@ -1,0 +1,10 @@
+Index: pifm/Makefile
+===================================================================
+--- pifm.orig/Makefile
++++ pifm/Makefile
+@@ -1,4 +1,5 @@
+ CFLAGS=-Wall -fno-strict-aliasing -fwrapv -Wstrict-prototypes -std=c99 -lm
++CPPFLAGS=-fpermissive
+ all: pifm
+ 
+ clean:

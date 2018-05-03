@@ -1,0 +1,16 @@
+language: cpp
+addons:
+  apt:
+    packages:
+    - build-essential
+    - devscripts
+    - debhelper
+    - git-buildpackage
+    - fakeroot
+install:
+  - git checkout $TRAVIS_BRANCH
+  - git rm .travis.yml
+  - git add .
+  - git commit -m 'Removed .travis.yml to avoid conflicts with debian packaging'
+script:
+  - gbp buildpackage --git-debian-branch=$TRAVIS_BRANCH
