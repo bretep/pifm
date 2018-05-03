@@ -1,0 +1,12 @@
+Source: pifm
+Maintainer: Alexander Georgievskiy <galeksandrp@gmail.com>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.2
+Build-Depends: debhelper (>= 9)
+
+Package: pifm
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: raspberry pi to fm transmitter
+ Turning the Raspberry Pi Into an FM Transmitter
