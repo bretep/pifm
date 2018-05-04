@@ -1,0 +1,6 @@
+[bintray]
+method = webdav
+fqdn = api.bintray.com
+login = netrc:
+incoming = https://{fqdn}/content/{loginuser}/deb/{source}/{upstream}/#mindepth=0&overwrite=1
+allow_unsigned_uploads = 1

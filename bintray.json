@@ -1,0 +1,43 @@
+{
+    "package": {
+        "name": "pifm",
+        "repo": "deb",
+        "subject": "galeksandrp",
+        "vcs_url": "https://github.com/galeksandrp/pifm.git",
+        "licenses": ["MIT"]
+    },
+
+    "version": {
+        "name": "1.0"
+    },
+
+    "files":
+        [
+        {"includePattern": "../pifm_1.0-1.dsc", "uploadPattern": "pifm_1.0-1.dsc","matrixParams": {
+        "deb_distribution": "stretch",
+        "deb_component": "main",
+        "deb_architecture": "any"}
+    },
+        {"includePattern": "../pifm_1.0.orig.tar.gz", "uploadPattern": "pifm_1.0.orig.tar.gz","matrixParams": {
+        "deb_distribution": "stretch",
+        "deb_component": "main",
+        "deb_architecture": "any"}
+    },
+        {"includePattern": "../pifm_1.0-1.debian.tar.gz", "uploadPattern": "pifm_1.0-1.debian.tar.gz","matrixParams": {
+        "deb_distribution": "stretch",
+        "deb_component": "main",
+        "deb_architecture": "any"}
+    },
+        {"includePattern": "../pifm_1.0-1_amd64.deb", "uploadPattern": "pifm_1.0-1_amd64.deb","matrixParams": {
+        "deb_distribution": "stretch",
+        "deb_component": "main",
+        "deb_architecture": "any"}
+    },
+        {"includePattern": "../pifm_1.0-1_amd64.changes", "uploadPattern": "pifm_1.0-1_amd64.changes","matrixParams": {
+        "deb_distribution": "stretch",
+        "deb_component": "main",
+        "deb_architecture": "any"}
+    }
+        ],
+    "publish": true
+}
