@@ -2,5 +2,5 @@
 method = webdav
 fqdn = api.bintray.com
 login = netrc:
-incoming = https://{fqdn}/content/{loginuser}/deb/{source}/{upstream}/#mindepth=0&overwrite=1
+incoming = https://{fqdn}/content/{loginuser}/deb/{source}/{upstream};deb_distribution=stretch;deb_component=main;deb_architecture=amd64;publish=1#mindepth=0&overwrite=1
 allow_unsigned_uploads = 1

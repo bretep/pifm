@@ -9,6 +9,10 @@ addons:
     - fakeroot
     - dput
 install:
+- echo -e "machine api.bintray.com\nlogin $BINTRAY_NAME\npassword $BINTRAY_TOKEN" >> ~/.netrc
+- chmod go-rwx ~/.netrc
+- echo "deb http://dl.bintray.com/jhermann/deb /" | sudo tee /etc/apt/sources.list.d/bintray-jhermann.list
+- sudo apt-get update && sudo apt-get install -y -o "APT::Get::AllowUnauthenticated=yes" dput-webdav
 - gpg --import galeksandrp.asc
 - mv .dput.cf ~
 - mv bintray.json ~
@@ -17,12 +21,9 @@ install:
 - git add .
 - git commit -m 'Removed .travis.yml to avoid conflicts with debian packaging'
 deploy:
-  provider: bintray
-  file: $HOME/bintray.json
-  user: galeksandrp
-  key:
-    secure: 0bnIFdp0xtFxxs16ZLWWtbURW3XJSYAWutGVbExmO3alsB30Mk/GPw2rJon2fgeu45CScMH/Qeb6y0MOQoKS7XROcfXmJFapznKP7WY3TxWtBB6DrijaXE93BwaNda3JK31IWYl7m3DtkcYt4BGIP9Pibdg5vodgd7FA6tHI5qPZaLiytt3LhADnLCdVZXA8AmxJt1/vYHwrmMWi2soK53syHE4DwqzlHWR5NT5/aG2jLzOqgoi3Zog0vTB6RYhSolvXGMRKO+w07KEPT9fAWaO9iYpeJqRShWKmpmqQBKXTWmlieGkfB7r+NfrAcJJKBecz8pyMqCo9wvhcPUbFtrqazZvPDiugRIshDmnp+CzM9ofjh0vmQNV8q1UjNhMN5xVK2+d72NzUbrabfN/EXU4vOXSDJMQtYurgvdyqmOFauwcun5MszNCleKKxh9RtDKNfWt8I3faB9aKPqsimz1VjV5nPup37+Tgz3ZpFdn4crDX+f5nKbElsiS8NJFqYxJ8CyWGaQyvyyZWJ/1Mw9zB8uIRa8/HceHhSNqpghCE28FDm8Idu3bFMr1GKsbOqQHUdayBrz+sFnlEcum7f4yLbsYRveaYhXO2k3FAP9jHk4pk6dUNddTWYIm/1CXOyTRJArMKTF55qiHTh/u8EnRJWU13nc1XosD619plruRU=
   skip_cleanup: true
+  provider: script
+  script: dput bintray ../pifm_1.0-1_amd64.changes
   on:
     all_branches: true
 script:
